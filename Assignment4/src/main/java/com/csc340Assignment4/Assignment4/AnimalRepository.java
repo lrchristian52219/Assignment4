@@ -10,6 +10,6 @@ import java.util.List;
 public interface AnimalRepository extends JpaRepository<Animal, Integer> {
 
     List<Animal> getAnimalsBySpecies(String species);
-    @Query(value = "select * from animals a where a.name like ?1", nativeQuery = true)
+    @Query(value = "select * from animals a where a.name like %?1%", nativeQuery = true)
     List<Animal> getAnimalsByNameContains(String keyword);
 }
